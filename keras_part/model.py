@@ -8,7 +8,7 @@ from keras.layers import GlobalMaxPooling2D
 from keras.layers import GlobalAveragePooling2D
 from keras.layers import LSTM
 from keras.layers import Reshape, Lambda, Embedding
-from keras.layers.merge import add, concatenate
+#from keras.layers.merge import add, concatenate
 from keras.preprocessing import image
 from keras.utils import layer_utils
 from keras.utils.data_utils import get_file
@@ -220,7 +220,8 @@ class ShowAndTell(object):
 
         vision_model = InceptionV3(include_top=True, input_tensor=image_input)
         for layer in vision_model.layers:
-            layer.trainable = False
+            #layer.trainable = False
+            layer.trainable = True
 
         image_embedding = Dense(self.config.embedding_size, activation=None, kernel_initializer='random_uniform',
                 bias_initializer='zeros')(vision_model.outputs[0])

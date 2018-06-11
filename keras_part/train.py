@@ -4,6 +4,7 @@ from model import ShowAndTell, VizCallback
 import keras
 import os
 import keras.backend as K
+import numpy as np
 
 K.set_learning_phase(1)
 
